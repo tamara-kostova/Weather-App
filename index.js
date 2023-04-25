@@ -81,7 +81,7 @@ search.addEventListener('click', ()=>{
                 main.style.backgroundColor="darkorange";
                 document.querySelector('.search input').style.backgroundColor="darkorange";
             }
-            main.style.height = '590px';
+            main.style.height = '600px';
             weather_main.style.display = '';
             weather_additional.style.display = '';
             weather_main.classList.add('fadeIn');
