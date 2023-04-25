@@ -31,6 +31,7 @@ search.addEventListener('click', ()=>{
             const temperature = document.querySelector('.temperature');
             const details = document.querySelector('.details');
             const humidity = document.querySelector('.humidity span');
+            const real_feel = document.querySelector('.real-feel span');
             const wind = document.querySelector('.wind span');
 
             switch (json.weather[0].main) {
@@ -60,22 +61,27 @@ search.addEventListener('click', ()=>{
                 default:
                     img.src = '';
             }
+            console.log(json);
             temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
             details.innerHTML = `${json.weather[0].description}`;
             humidity.innerHTML = `${json.main.humidity}%`;
+            real_feel.innerHTML = `${parseInt(json.main.feels_like)}<span>°C</span>`
+            console.log(json.main.feels_like);
             wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
-
-
+            
             if (data.getHours()>16){
                 console.log("night");
                 main.style.backgroundColor="midnightblue";
                 document.body.style.color = "whitesmoke";
                 wind.style.color="whitesmoke";
+                real_feel.color="whitesmoke";
                 humidity.style.color="whitesmoke";
                 details.style.color="whitesmoke";
                 temperature.style.color="whitesmoke";
                 document.querySelector('.search input').style.backgroundColor="midnightblue";
                 document.querySelector('.search input').style.color="whitesmoke";
+                search.style.color="whitesmoke";
+                //document.querySelector('.icon').classList.add('white');
             }
             else{
                 main.style.backgroundColor="darkorange";
