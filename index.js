@@ -1,10 +1,15 @@
 const all = document.querySelector('.all');
 const search = document.querySelector('#search-button');
+const input = document.querySelector('#search-input');
 const weather_main = document.querySelector('.weather-main');
 const weather_additional = document.querySelector('.weather-additional');
 const error = document.querySelector('.error');
 const date = document.querySelector('.updated');
 const main = document.querySelector('.main');
+input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        document.getElementById("search-button").click();
+    }});
 search.addEventListener('click', ()=>{
     const APIKey = "9658e640c854a6edb90fc2f5fbac3c7d";
     const city = document.querySelector('.search input').value;
@@ -69,23 +74,27 @@ search.addEventListener('click', ()=>{
             console.log(json.main.feels_like);
             wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
             
-            if (data.getHours()>16){
+            if (data.getHours()>16&&data.getHours()<6){
                 console.log("night");
                 main.style.backgroundColor="midnightblue";
                 document.body.style.color = "whitesmoke";
                 wind.style.color="whitesmoke";
-                real_feel.color="whitesmoke";
+                real_feel.classList.add("white");
                 humidity.style.color="whitesmoke";
                 details.style.color="whitesmoke";
                 temperature.style.color="whitesmoke";
                 document.querySelector('.search input').style.backgroundColor="midnightblue";
                 document.querySelector('.search input').style.color="whitesmoke";
-                search.style.color="whitesmoke";
-                //document.querySelector('.icon').classList.add('white');
+                const icons = document.querySelectorAll('i');
+                icons.forEach((element) => {
+                    element.style.color="whitesmoke";
+                  });
             }
             else{
                 main.style.backgroundColor="darkorange";
                 document.querySelector('.search input').style.backgroundColor="darkorange";
+                date.style.color="#223a3a";
+                details.style.color="223a3a";
             }
             main.style.height = '600px';
             weather_main.style.display = '';
