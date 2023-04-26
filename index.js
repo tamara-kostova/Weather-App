@@ -66,7 +66,8 @@ search.addEventListener('click', ()=>{
             const humidity = document.querySelector('.humidity span');
             const real_feel = document.querySelector('.real-feel span');
             const wind = document.querySelector('.wind span');
-
+            const min = document.querySelector('.min span');
+            const max = document.querySelector('.max span');
             console.log(json);
             
             temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
@@ -74,6 +75,8 @@ search.addEventListener('click', ()=>{
             humidity.innerHTML = `${json.main.humidity}%`;
             real_feel.innerHTML = `${parseInt(json.main.feels_like)}<span>°C</span>`
             console.log(json.main.feels_like);
+            // min.innerHTML=`${parseInt(json.main.temp_min)}<span>°C</span>`
+            // max.innerHTML=`${parseInt(json.main.temp_max)}<span>°C</span>`
             wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
             
             if (data.getHours()>16&&data.getHours()<6){
@@ -94,7 +97,7 @@ search.addEventListener('click', ()=>{
             }
             else{
                 main.style.backgroundColor="darkorange";
-                document.querySelector('.search input').style.backgroundColor="darkorange";
+                input.style.backgroundColor="darkorange";
                 date.style.color="#223a3a";
                 details.style.color="223a3a";
             }
@@ -103,6 +106,6 @@ search.addEventListener('click', ()=>{
             weather_additional.style.display = '';
             weather_main.classList.add('fadeIn');
             weather_additional.classList.add('fadeIn');
-            document.querySelector('#seach-input').classList.add('fadeIn');
+            // input.classList.add('fadeInSearch');
 })
 })

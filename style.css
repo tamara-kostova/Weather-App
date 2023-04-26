@@ -144,3 +144,12 @@
         opacity: 1;
     }
 }
+.fadeInSearch{
+    animation: 0.5s fadeIn forwards;
+    animation-delay: 0.5s;
+}
+@keyframes fadeInSearch{
+    to {
+        background-color: darkorange;
+    }
+}
