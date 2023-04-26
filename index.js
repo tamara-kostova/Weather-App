@@ -33,11 +33,6 @@ search.addEventListener('click', ()=>{
             error.classList.remove('fadeIn');
 
             const img = document.querySelector('.weather-main img');
-            const temperature = document.querySelector('.temperature');
-            const details = document.querySelector('.details');
-            const humidity = document.querySelector('.humidity span');
-            const real_feel = document.querySelector('.real-feel span');
-            const wind = document.querySelector('.wind span');
 
             switch (json.weather[0].main) {
                 case 'Clear':
@@ -66,7 +61,14 @@ search.addEventListener('click', ()=>{
                 default:
                     img.src = '';
             }
+            const temperature = document.querySelector('.temperature');
+            const details = document.querySelector('.details');
+            const humidity = document.querySelector('.humidity span');
+            const real_feel = document.querySelector('.real-feel span');
+            const wind = document.querySelector('.wind span');
+
             console.log(json);
+            
             temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
             details.innerHTML = `${json.weather[0].description}`;
             humidity.innerHTML = `${json.main.humidity}%`;
@@ -101,6 +103,6 @@ search.addEventListener('click', ()=>{
             weather_additional.style.display = '';
             weather_main.classList.add('fadeIn');
             weather_additional.classList.add('fadeIn');
-
+            document.querySelector('#seach-input').classList.add('fadeIn');
 })
 })
