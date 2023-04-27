@@ -11,7 +11,7 @@ input.addEventListener("keypress", function(event) {
         document.getElementById("search-button").click();
     }});
 search.addEventListener('click', ()=>{
-    const APIKey = "9658e640c854a6edb90fc2f5fbac3c7d";
+    const APIKey = "";
     const city = document.querySelector('.search input').value;
     console.log(city);
     if (city==='')
